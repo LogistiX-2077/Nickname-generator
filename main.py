@@ -5,7 +5,8 @@ nickname = ""
 firstname = ""
 inch = ""
 choice = False
-list_of_prps = ["Unknown","Solo","NoScope","360","Death","Dead","#freeNavalny","123","228","666","Just","Not","Losted","Cute","Shadow","Ghost"]
+list_of_prps = ["Unknown","Solo","NoScope","360","Death","Dead","#freeNavalny","123","228","666","Just","Not","Losted","Cute","Shadow","Ghost","2077"]
+#function of choice (yes or no)
 def inchoice (inch):
   global choice
   while inch != "yes" or inch != "no":
@@ -21,6 +22,7 @@ def inchoice (inch):
     else:
       print("Incorrect input, try again.")
   return 0
+#function ends
 firstname = input("Enter your name: ")
 nickname = firstname
 print("Do u want to use your last name?")
@@ -31,14 +33,20 @@ if choice == True:
   inchoice(inch)
   if choice == True:
     nickname = firstname[0] + lastname[0]
+#all digits replaces
 print("Do u wanna replace all 'i' on 1?")
 inchoice(inch)
 if choice == True:
   nickname = nickname.replace("i","1")
-print("Do u wanna replace all 'o' on 1?")
+print("Do u wanna replace all 'o' on 1 or 0 (amswer only on the qustion 'Do u want to replace all 'o' on digits)?")
 inchoice(inch)
 if choice == True:
-  nickname = nickname.replace("o","1")
+  print("Which digits do u like more, '1' or '0' ? ")
+  digitsch = int(input())
+  if digitsch == 1:
+    nickname = nickname.replace("o","1")
+  if digitsch == 0:
+    nickname = nickname.replace("o","0")
 print("Do u want to replace all 'ei' on 8?")
 inchoice(inch)
 if choice == True:
@@ -51,7 +59,7 @@ print("Do u want to replace all 'for' on 4?")
 inchoice(inch)
 if choice == True:
   nickname = nickname.replace("for","4")
-#разделитель
+#all about postscrips
 print("Do u wanna use postscrips?")
 inchoice(inch)
 if choice == True:
@@ -70,11 +78,11 @@ if choice == True:
     time.sleep(0.5)
   print("Choose the number of postscrip which do u want to use, or enter '9999' to enter your own postscrip.")
   counter = -25
-  while counter != 9999 or 0 < counter < 17:
+  while counter != 9999 or 0 < counter < 18:
     counter = int(input())
     if counter == 9999:
       break
-    if 0 < counter < 17:
+    if 0 < counter < 18:
       break
     else:
       print("Incorrect input, try again.")
@@ -85,6 +93,7 @@ if choice == True:
     counter -= 1
     prepiska = list_of_prps[counter]
     nickname = prepiska + " " + nickname
+#space replaces
 print("Do u want to replace all spaces on '._.' or '_'?")
 inchoice(inch)
 if choice == True:
@@ -95,6 +104,7 @@ if choice == True:
   if counter == 2:
     nickname = nickname.replace(" ","_")
 time.sleep(0.38)
+#end of the program and result
 print("Generating your nickname...")
 time.sleep(5)
 print(f"Your nickname: {nickname}")
