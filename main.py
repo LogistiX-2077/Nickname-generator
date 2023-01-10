@@ -1,11 +1,12 @@
 import time
+import random
 
 print("(Use only 'yes' or 'no' for the answer)")
 nickname = ""
 firstname = ""
 inch = ""
 choice = False
-list_of_prps = ["Unknown","Solo","NoScope","360","Death","Dead","#freeNavalny","123","228","666","Just","Not","Losted","Cute","Shadow","Ghost","2077"]
+list_of_prps = ["Unknown","Solo","NoScope","360","Death","Dead","#freeNavalny","123","228","666","Just","Not","Losted","Cute","Shadow","Ghost","2077","Hunter","Anonimus","Imposter","InLoveWith","Super","President","Holy","Cool","Cold","Stupid"]
 #function of choice (yes or no)
 def inchoice (inch):
   global choice
@@ -78,11 +79,11 @@ if choice == True:
     time.sleep(0.5)
   print("Choose the number of postscrip which do u want to use, or enter '9999' to enter your own postscrip.")
   counter = -25
-  while counter != 9999 or 0 < counter < 18:
+  while counter != 9999 or 0 < counter < 28:
     counter = int(input())
     if counter == 9999:
       break
-    if 0 < counter < 18:
+    if 0 < counter < 28:
       break
     else:
       print("Incorrect input, try again.")
@@ -93,6 +94,47 @@ if choice == True:
     counter -= 1
     prepiska = list_of_prps[counter]
     nickname = prepiska + " " + nickname
+#number in the end of nickname
+print("Do u want to add number in the end of nickname?")
+inchoice(inch)
+if choice == True:
+  print("Do u want to enter your own number or use random?(enter 1 to write your own number and enter 2 to add random number)")
+  counter = -25
+  while counter != 1 or counter != 2:
+    counter = int(input())
+    if counter == 1:
+      break
+    if counter == 2:
+      break
+    else:
+      print("Incorrect input, try again.")
+  if counter == 1:
+    numbr = int(input("Enter your number: "))
+    print("Do you want to make space between your nickname and number?")
+    inchoice(inch)
+    if choice == True:
+      nickname = nickname + " " + str(numbr)
+    if choice == False:
+      nickname = nickname + str(numbr)
+  if counter == 2:
+    print("How many digits will be in your number? (choose from one to five)")
+    hmd = int(input())
+    if hmd == 1:
+      numbr = random.randint(0,9)
+    if hmd == 2:
+      numbr = random.randint(10,99)
+    if hmd == 3:
+      numbr = random.randint(100,999)
+    if hmd == 4:
+      numbr = random.randint(1000,9999)
+    if hmd == 5:
+      numbr = random.randint(10000,99999)
+    print("Do u want to make a space between your nickname and number?")
+    inchoice(inch)
+    if choice == True:
+      nickname = nickname + " " + str(numbr)
+    if choice == False:
+      nickname = nickname + str(numbr)
 #space replaces
 print("Do u want to replace all spaces on '._.' or '_'?")
 inchoice(inch)
@@ -106,5 +148,5 @@ if choice == True:
 time.sleep(0.38)
 #end of the program and result
 print("Generating your nickname...")
-time.sleep(5)
+time.sleep(2)
 print(f"Your nickname: {nickname}")
